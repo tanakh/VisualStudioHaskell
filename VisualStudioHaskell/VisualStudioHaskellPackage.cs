@@ -41,6 +41,16 @@ namespace Company.VisualStudioHaskell
     // This attribute declares that your EditorPane class implements IVsCodeWindow interface
     // used to navigate to find results from a "Find in Files" type of operation.
     [ProvideEditorLogicalView(typeof(EditorFactory), VSConstants.LOGVIEWID.TextView_string)]
+
+    [ProvideProjectFactory(
+        typeof(ProjectFactory),
+        "Haskell Project",
+        "Haskell Project Files (*.cabal);*.cabal",
+        "cabal",
+        "cabal",
+        "Templates\\Projects\\HaskellProject",
+        LanguageVsTemplate = "HaskellProject")]
+
     [Guid(GuidList.guidVisualStudioHaskellPkgString)]
     public sealed class VisualStudioHaskellPackage : Package
     {
